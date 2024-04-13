@@ -16,6 +16,7 @@ from configurations import Configuration
 from configurations import values
 import dj_database_url
 
+
 class Dev(Configuration):
 
   # LOGGING = {
@@ -125,6 +126,7 @@ class Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.staticfiles',
       'blog',
+      'blango_auth',
       'crispy_forms',
       'crispy_bootstrap5',
       "debug_toolbar",
@@ -232,6 +234,9 @@ class Dev(Configuration):
   DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+  # Add this config for using custom models User inside project
+  AUTH_USER_MODEL = "blango_auth.User"
 
 
 class Prod(Dev):

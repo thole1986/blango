@@ -18,7 +18,12 @@ import dj_database_url
 
 
 class Dev(Configuration):
-
+  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+  ACCOUNT_ACTIVATION_DAYS = 7
+  # Configure not allowed to render register view
+  #   REGISTRATION_OPEN = False
+  # Allowed register  
+  REGISTRATION_OPEN = True  # Django set it to default
   # LOGGING = {
   #     "version": 1,
   #     "disable_existing_loggers": False,
@@ -119,6 +124,7 @@ class Dev(Configuration):
   # Application definition
 
   INSTALLED_APPS = [
+      'blango_auth', 
       'django.contrib.admin',
       'django.contrib.auth',
       'django.contrib.contenttypes',
@@ -126,7 +132,6 @@ class Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.staticfiles',
       'blog',
-      'blango_auth',
       'crispy_forms',
       'crispy_bootstrap5',
       "debug_toolbar",

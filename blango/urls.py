@@ -39,6 +39,7 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("allauth.urls")),
     path("accounts/profile/", blango_auth.views.profile, name="profile"),
+    path("accounts/", include("blog.api_urls")),
 ]
 
 if settings.DEBUG:  # If on development env add the view to Django debug_toolbar on views
